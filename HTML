@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5f59ca6ad3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container top-bg">
+        <div class="row">
+            <div class="col-6 mt-4">
+                <h5>GITHUB REPO SEARCH</h5>
+            </div>
+            <div class="col-6 mt-4">
+                <input type="search" class="input-bar" id="user-name" placeholder="Enter Username" />
+
+            </div>
+            <div class="col-5 ">
+                <div class="img-container ">
+                    <img id="photo" src="https://curatedceramics.com/wp-content/uploads/2017/10/blank-profile-picture-768x1031.jpg" class="image-styling" />
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="text-container">
+                    <h1 class="name" id="username">john Doe</h1>
+                    <p class="bio" id="userbio">Bio goes Here</p>
+                    <p class="location" id="location"><span class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg></span> <span id="userplace">Orlando</span></p>
+                    <p class="twitter">Twitter:https://twitter.com/<span id="twitter">john_doe</span></p>
+                </div>
+            </div>
+            <div class="col-12">
+                <p>
+                    <span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+                            <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z" />
+                            <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z" />
+                        </svg></span>
+                    <span id="giturl">https://github.com/john_doe</span>
+
+                </p>
+            </div>
+            <div class="d-none" id="spinner">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container main-bg">
+        <div class="row" id="repos">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
