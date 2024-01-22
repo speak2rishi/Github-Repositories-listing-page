@@ -1,0 +1,101 @@
+let userSearchBarEl = document.getElementById("user-name")
+let userNameEl = document.getElementById("username")
+let userBioEl = document.getElementById("userbio")
+let userPlaceEl = document.getElementById("userplace")
+let userTwitterEl = document.getElementById("twitter")
+let userGitUrlEl = document.getElementById("giturl")
+let userPhotoEl = document.getElementById("photo")
+let spinnerEl = document.getElementById("spinner")
+let contEl = document.getElementById("repos")
+
+
+
+
+
+
+function addEachRepo(each) {
+    let {
+        name,
+        description,
+        language
+    } = each;
+    let backEl = document.createElement("div")
+    let headEl = document.createElement("h3")
+    let paraEl = document.createElement("p")
+    let langEl = document.createElement("p")
+    langEl.classList.add("lang")
+    backEl.classList.add("col-6")
+    backEl.classList.add("each")
+    headEl.textContent = name;
+    paraEl.textContent = description;
+    langEl.textContent = language;
+
+
+
+
+
+
+    backEl.appendChild(headEl);
+    backEl.appendChild(paraEl);
+    backEl.appendChild(langEl);
+    contEl.appendChild(backEl);
+
+
+
+}
+
+
+function displayResults(search_results) {
+    for (let each of search_results) {
+        addEachRepo(each);
+    }
+}
+
+function githubRepo(event) {
+    if (event.key === "Enter") {
+        contEl.textContent = "";
+        let enteredValue = userSearchBarEl.value;
+        spinnerEl.classList.remove("d-none");
+        if (enteredValue === "") {
+            alert("Please Enter The User Name");
+
+        } else {
+            let options = {
+                method: "GET"
+            };
+
+            fetch("https://api.github.com/users/" + enteredValue, options)
+                .then(function(response) {
+                    spinnerEl.classList.add("d-none");
+                    return response.json();
+                })
+                .then(function(jsonData) {
+                    console.log(jsonData);
+                    userBioEl.textContent = jsonData.bio;
+                    userPlaceEl.textContent = jsonData.location;
+                    userNameEl.textContent = jsonData.name;
+                    userTwitterEl.textContent = jsonData.twitter_username;
+                    userGitUrlEl.textContent = jsonData.url;
+                    userPhotoEl.src = jsonData.avatar_url;
+
+
+
+
+                });
+            fetch("https://api.github.com/users/" + enteredValue + "/repos", options)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(jsonData) {
+                    console.log(jsonData)
+                    displayResults(jsonData);
+                });
+
+
+        }
+
+
+
+    }
+}
+userSearchBarEl.addEventListener("keydown", githubRepo)
